@@ -142,11 +142,14 @@ Run TryMOS on OpenStack
       git checkout -b <latest release>
       cd trymos/heat-templates
 
-#. Set the correct image in the Heat environment:
+#. Set the correct variables in the Heat environment file (`env/aio.yaml <heat-templates/env/aio.yaml>`_):
 
-   .. code-block:: console
+   .. code-block:: yaml
 
-      sed -i "s/trymos-bionic-amd64-nightly/${TRYMOS_IMAGE_FILE}" env/aio.yaml
+      parameters:
+        image: <TRYMOS_IMAGE_FILE>
+        cluster_public_key: <Your ssh public key>
+        dns_nameservers: <List of nameserver adresses e.g. ['9.9.9.9']>
 
 #. Launch the stack:
 
